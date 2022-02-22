@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+FrameWork/.vs
+FrameWork/x64
+FrameWork/Base/x64

@@ -1,0 +1,11 @@
+静的でないメンバー参照
+->クラス名::関数名を使用する際は「static」をつける
+
+3項演算子
+-> condition(if) ? true : false
+
+template
+-> <>の中身はtypename または class
+
+sizeof
+->size_t test = sizeof(type-name) type-name = int, float...
