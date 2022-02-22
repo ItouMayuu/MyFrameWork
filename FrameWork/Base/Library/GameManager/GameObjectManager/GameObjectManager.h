@@ -27,6 +27,9 @@ public:
 	void draw();
 	//死亡しているアクターの削除
 	void remove();
+	//キャストなしで直接アクターを取得
+	template<typename GameObjectType>
+	GameObjectType* get(const std::string& tag) const;
 	//アクターの検索
 	std::shared_ptr<GameObject> find(const std::string& name) const;
 	//指定したタグ名を持つアクターの検索

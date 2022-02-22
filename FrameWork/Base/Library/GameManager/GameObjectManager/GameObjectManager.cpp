@@ -35,6 +35,18 @@ void GameObjectManager::remove(){
     }
 }
 
+template<typename GameObjectType>
+GameObjectType* GameObjectManager::get(const std::string& tag) const {
+    //名前が一致したらそのゲームオブジェクトを返す
+    for (auto go : gameobjects) {
+        if (go->name() == tag) {
+            GameObjectType* gos = (GameObjectType)&go;
+            return gos;
+        }
+    }//なにもなければnullを返す
+    return nullptr;
+}
+
 std::shared_ptr<GameObject> GameObjectManager::find(const std::string& name) const{
     //名前が一致したらそのゲームオブジェクトを返す
     for (auto go : game_objects_) {
