@@ -22,12 +22,6 @@ private:
 	int hp_{ 0 };
 	int mp_{ 0 };
 
-	float x_{ 0 };
-	float y_{ 0 };
-	float z_{ 0 };
-
-	float w{ 0 };
-
 	void InputHandle();
 };
 

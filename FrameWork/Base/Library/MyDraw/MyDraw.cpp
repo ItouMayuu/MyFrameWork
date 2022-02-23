@@ -186,6 +186,17 @@ int MyDraw::DrawDivRotaFloorF3D(Plane plane, float xf, float yf, float zf, doubl
 	return DrawDivRotaGraphF3D(plane, xf, yf - imageHeight / 2, zf, ExRate, AngleVec, divImage, id, TransFlag, ReverseXFlag, ReverseYFlag, ReverseZFlag);
 }
 
+int MyDraw::Draw3DModel(int model, Transform transform){
+	//座標をセット
+	DxLib::MV1SetPosition(model, DxLib::VGet(transform.position().x, transform.position().y, transform.position().z));
+	//回転値をセット(単位はラジアン ->  *π/180)
+	DxLib::MV1SetRotationXYZ(model, DxLib::VGet(transform.rotation().x * MyMath::Deg_to_Rad, transform.rotation().y * MyMath::Deg_to_Rad, transform.rotation().z * MyMath::Deg_to_Rad));
+	//拡大値をセット
+	DxLib::MV1SetScale(model, DxLib::VGet(transform.scale().x, transform.scale().y, transform.scale().z));
+	//モデルの描画
+	return DxLib::MV1DrawModel(model);
+}
+
 Vec3 MyDraw::VecAngle(Plane plane, double angle){
 	Vec3 angleVec = VGet(0, 0, 0);
 

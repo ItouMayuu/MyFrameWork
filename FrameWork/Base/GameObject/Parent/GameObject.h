@@ -5,6 +5,8 @@
 
 #include "../../Library/GameManager/GameManager.h"
 #include "../../Library/Transform/Transform.h"
+#include "../../Library/MyDraw/MyDraw.h"
+#include "../../Resource/Image/Image.h"
 
 class Component;
 

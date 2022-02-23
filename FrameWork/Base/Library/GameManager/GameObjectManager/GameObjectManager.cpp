@@ -38,7 +38,7 @@ void GameObjectManager::remove(){
 template<typename GameObjectType>
 GameObjectType* GameObjectManager::get(const std::string& tag) const {
     //名前が一致したらそのゲームオブジェクトを返す
-    for (auto go : gameobjects) {
+    for (auto go : game_objects_) {
         if (go->name() == tag) {
             GameObjectType* gos = (GameObjectType)&go;
             return gos;

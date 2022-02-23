@@ -72,6 +72,7 @@ public:
 
 	static DivImage mapChip;
 	static int Boss;
+	static int Box;
 };
 
 #endif // !IMAGE_H_

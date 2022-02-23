@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "DxLib.h"
 
-#include "../../../Library/MyDraw/MyDraw.h"
 #include "../../../Library/Component/Child/TestComponent/TestComponent.h"
 #include "../../../Library/Input/Input.h"
 
@@ -16,8 +15,9 @@ void Player::update(){
 }
 
 void Player::draw() const{
-	DrawString(0, 0, std::to_string(w).c_str(), GetColor(255, 255, 255));
-	DrawString(x_ , y_ , "プレイヤー", GetColor(255, 255, 255));
+	DrawString(0, 0, std::to_string(transform_.position().x).c_str(), GetColor(255, 255, 255));
+	DrawString(0, 30, std::to_string(transform_.position().y).c_str(), GetColor(255, 255, 255));
+	MyDraw::Draw3DModel(Image::Box, transform());
 }
 
 void Player::load_status(int hp, int mp){
@@ -27,38 +27,39 @@ void Player::load_status(int hp, int mp){
 
 void Player::InputHandle() {
 
-	//w = gm.input_->GetMouseWheel();
-
-	w = gm.input_->GetPadLeftTrigger();
-
 	if (gm.input_->AnyKeyDown()) {
 		//gm.input_->PadVibration(100, 2000);
-	}
-	if (gm.input_->GetInputDown("Jump")) {
-		y_ = 400;
 	}
 
 	if (gm.input_->GetInputDown("End")) {
 		DxLib_End();
 	}
-	Vec2 velocity{ 0.0f,0.0f};
+	Vec3 velocity{ 0.0f,0.0f,0.0f };
 
-	velocity = gm.input_->GetPadLeftStick() * 10;
-
+	velocity.x = gm.input_->GetPadLeftStick().x * 10;
+	velocity.z = gm.input_->GetPadLeftStick().y * 10;
 
 	if (gm.input_->GetInput("Forward")) {
-		velocity.y = -1;
+		velocity.z = 10;
 	}
 	if (gm.input_->GetInput("Backward")) {
-		velocity.y = 1;
+		velocity.z = -10;
 	}
 	if (gm.input_->GetInput("ToLeft")) {
-		velocity.x = -1;
+		velocity.x = -10;
 	}
 	if (gm.input_->GetInput("ToRight")) {
-		velocity.x = 1;
+		velocity.x = 10;
+	}
+	if (gm.input_->GetInput("Up")) {
+		velocity.y = 10;
+	}
+	if (gm.input_->GetInput("Down")) {
+		velocity.y = -10;
 	}
 
-	x_ += velocity.x;
-	y_ += velocity.y;
+	//座標の割り当て
+	Vec3 position = transform_.position();
+	position += velocity;
+	transform_.position(position);
 }

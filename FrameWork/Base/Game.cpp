@@ -49,6 +49,8 @@ void Game::RegisterButton(){
 	gm.input_->RegisterButton("ToRight", KEY_INPUT_D, InputType::KeyBoard);
 	gm.input_->RegisterButton("Jump", KEY_INPUT_SPACE, InputType::KeyBoard);
 	gm.input_->RegisterButton("End", KEY_INPUT_ESCAPE, InputType::KeyBoard);
+	gm.input_->RegisterButton("Up", KEY_INPUT_UP, InputType::KeyBoard);
+	gm.input_->RegisterButton("Down", KEY_INPUT_DOWN, InputType::KeyBoard);
 
 	gm.input_->RegisterButton("Forward", XINPUT_BUTTON_DPAD_UP, InputType::Pad);
 	gm.input_->RegisterButton("Backward", XINPUT_BUTTON_DPAD_DOWN, InputType::Pad);

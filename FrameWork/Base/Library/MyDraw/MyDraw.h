@@ -33,8 +33,11 @@ public:
 	static void DrawDivRotaDivBoxF3D(float xf, float yf, float zf, double ExRate, Vec3 Angle, DivImage& divImage, int id, int TransFlag = true, int ReverseXFlag = false, int ReverseYFlag = false, int ReverseZFlag = false);
 	//3D‹óŠÔ‚Å‰æ‘œ•`‰æ
 	static int DrawDivRotaGraphF3D(Plane plane, float xf, float yf, float zf, double ExRate, Vec3 Angle, DivImage& divImage, int id, int TransFlag = true, int ReverseXFlag = false, int ReverseYFlag = false, int ReverseZFlag = false);
-
+	//3D‹óŠÔ‚Å°‚Ì•`‰æ
 	static int DrawDivRotaFloorF3D(Plane plane, float xf, float yf, float zf, double ExRate, double Angle, DivImage& divImage, int id, int TransFlag = true, int ReverseXFlag = false, int ReverseYFlag = false, int ReverseZFlag = false);
+
+	//3Dƒ‚ƒfƒ‹‚Ì•`‰æ
+	static int Draw3DModel(int model, Transform transform);
 
 private:
 	//•½–Ê‚É‡‚í‚¹‚Ä‰ñ“]²‚ğ‘I‘ğ

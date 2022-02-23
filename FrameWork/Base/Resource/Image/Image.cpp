@@ -3,6 +3,7 @@
 
 DivImage Image::mapChip{ 16,16,32,32 };//Xの数, Yの数, Xのサイズ, Yのサイズ
 int Image::Boss{ -1 };
+int Image::Box{ -1 };
 
 //画像の読み込み
 void Image::Init(){
@@ -15,6 +16,10 @@ void Image::Init(){
 	}
 
 	Boss = LoadGraph("ResourceFile/ImageFile/boss1.png");
+	assert(Boss != -1);
+
+	Box = MV1LoadModel("ResourceFile/ImageFile/box.mv1");
+	assert(Box != -1);
 }
 
 int Image::LoadDivGraphs(const TCHAR* FileName, DivImage& divImage){

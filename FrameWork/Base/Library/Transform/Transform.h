@@ -27,13 +27,25 @@ public:
 	Vec3 position() const {
 		return position_;
 	}
+	//transformの位置を設定
+	Vec3 position(const Vec3& position) {
+		return position_ = position;
+	}
 	//transformの回転を取得
 	Quaternion rotation() const {
 		return rotation_;
 	}
+	//transformの回転を設定
+	Quaternion rotation(const Quaternion& rotation) {
+		return rotation_ = rotation;
+	}
 	//transformのスケールを取得
 	Vec3 scale() const{
 		return scale_;
+	}
+	//transformのスケールを設定
+	Vec3 scale(const Vec3& scale) {
+		return scale_ = scale;
 	}
 
 
