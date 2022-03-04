@@ -29,7 +29,16 @@ public:
 	void remove();
 	//キャストなしで直接アクターを取得
 	template<typename GameObjectType>
-	GameObjectType* get(const std::string& tag) const;
+	GameObjectType* get(const std::string& tag) const {
+		//名前が一致したらそのゲームオブジェクトを返す
+		for (auto go : game_objects_) {
+			if (go->name() == tag) {
+				GameObjectType* gos = (GameObjectType*)&go;
+				return gos;
+			}
+		}//なにもなければnullを返す
+		return nullptr;
+	}
 	//アクターの検索
 	std::shared_ptr<GameObject> find(const std::string& name) const;
 	//指定したタグ名を持つアクターの検索

@@ -171,6 +171,8 @@
     <ClCompile Include="Scene\Parent\NullScene\NullScene.cpp" />
     <ClCompile Include="Scene\SceneManager.cpp" />
     <ClCompile Include="Library\Component\Child\TestComponent\TestComponent.cpp" />
+    <ClCompile Include="Library\Component\Child\SphereCollision\SphereCollision.cpp" />
+    <ClCompile Include="GameObject\Child\TestObject\TestObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\Component\Parent\Component.h" />
@@ -201,6 +203,8 @@
     <ClInclude Include="Scene\SceneManager.h" />
     <ClInclude Include="Library\Transform\Vec2\Vec2.h" />
     <ClInclude Include="Library\Component\Child\TestComponent\TestComponent.h" />
+    <ClInclude Include="Library\Component\Child\SphereCollision\SphereCollision.h" />
+    <ClInclude Include="GameObject\Child\TestObject\TestObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

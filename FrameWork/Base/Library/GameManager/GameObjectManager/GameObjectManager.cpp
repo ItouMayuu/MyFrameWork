@@ -12,15 +12,15 @@ void GameObjectManager::add(std::shared_ptr<GameObject> gameobject){
 
 void GameObjectManager::update(){
     for (auto go : game_objects_) {
-        go->component_update();
         go->update();
+        go->component_update();
     }
 }
 
 void GameObjectManager::draw(){
     for (auto go : game_objects_) {
-        go->component_draw();
         go->draw();
+        go->component_draw();
     }
 }
 
@@ -33,18 +33,6 @@ void GameObjectManager::remove(){
             i++;
         }
     }
-}
-
-template<typename GameObjectType>
-GameObjectType* GameObjectManager::get(const std::string& tag) const {
-    //名前が一致したらそのゲームオブジェクトを返す
-    for (auto go : game_objects_) {
-        if (go->name() == tag) {
-            GameObjectType* gos = (GameObjectType)&go;
-            return gos;
-        }
-    }//なにもなければnullを返す
-    return nullptr;
 }
 
 std::shared_ptr<GameObject> GameObjectManager::find(const std::string& name) const{

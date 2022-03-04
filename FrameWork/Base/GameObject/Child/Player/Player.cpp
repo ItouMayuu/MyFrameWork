@@ -1,13 +1,14 @@
 #include "Player.h"
 #include "DxLib.h"
 
-#include "../../../Library/Component/Child/TestComponent/TestComponent.h"
 #include "../../../Library/Input/Input.h"
 
-Player::Player(){
+Player::Player(const Vec3& position){
 	this->name_ = "Player";
 	this->tag_ = "PlayerTag";
-	this->components.push_back(std::make_shared<test>(this));
+	this->components.push_back(std::make_shared<SphereCollision>(20,position,this));
+	transform_.position(position);
+	col = get_comp<SphereCollision>("SphereCollision");
 }
 
 void Player::update(){
@@ -18,6 +19,8 @@ void Player::draw() const{
 	DrawString(0, 0, std::to_string(transform_.position().x).c_str(), GetColor(255, 255, 255));
 	DrawString(0, 30, std::to_string(transform_.position().y).c_str(), GetColor(255, 255, 255));
 	MyDraw::Draw3DModel(Image::Box, transform());
+	//DrawString(0, 60, std::to_string(col->get_radius()).c_str(), GetColor(255, 255, 255));
+	col->draw_debug();
 }
 
 void Player::load_status(int hp, int mp){
@@ -62,4 +65,6 @@ void Player::InputHandle() {
 	Vec3 position = transform_.position();
 	position += velocity;
 	transform_.position(position);
+	//ƒRƒŠƒWƒ‡ƒ“‚àˆÚ“®
+	//col->transform(position,col->get_radius());
 }

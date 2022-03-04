@@ -44,6 +44,18 @@ public:
 	void component_draw();
 	//コンポーネントを取得
 	std::vector<std::shared_ptr<Component>> get_components();
+	//直接コンポーネントを取得
+	template<typename ComponentType>
+	typename ComponentType* get_comp(const std::string& tag) const {
+		//タグが一致したらコンポーネントを返す
+			for (auto cp : components) {
+				if (cp->tag == tag) {
+					ComponentType* cps = (ComponentType*)&cp;
+					return cps;
+				}
+			}//なにもなければnullを返す
+		return nullptr;
+	}
 	
 	//コピー禁止
 	GameObject(const GameObject& other) = delete;

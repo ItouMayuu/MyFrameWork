@@ -8,6 +8,8 @@
 #include "../../Library/DataSave/DataSave.h"
 #include "../../Resource/Map/Map.h"
 
+#include "../../GameObject/Child/TestObject/TestObject.h"
+
 #include <string>
 #include "DxLib.h"
 
@@ -16,9 +18,10 @@ SampleScene::SampleScene(){
 
 void SampleScene::init() {
 	//仮にプレイヤー追加
-	gm.player_ = std::make_shared<Player>();
+	gm.player_ = std::make_shared<Player>(Vec3{200,200,200});
 	//ゲームオブジェクトマネージャーにも登録 ※操作はgm.player_で大丈夫
 	gm.game_object_manager_->add(gm.player_);
+	gm.game_object_manager_->add(std::make_shared<TestObject>(Vec3{600,200,200}));
 	//マップ追加
 	gm.map_ = std::make_shared<Map>(0, "Stage1");
 	//データのセーブテスト

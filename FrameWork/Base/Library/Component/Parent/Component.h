@@ -22,7 +22,6 @@ public:
 	Component(GameObject* owner) : owner{ owner } {};
 	//仮想デストラクタ
 	virtual ~Component() {};
-
 	virtual void update(GameObject* obj = nullptr) {};
 	virtual void draw(GameObject* obj = nullptr) {};
 };

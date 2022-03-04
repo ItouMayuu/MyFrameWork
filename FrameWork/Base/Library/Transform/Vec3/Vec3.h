@@ -219,5 +219,13 @@ struct Vec3 {
 inline Vec3 operator *(float s, const Vec3& self) {
 	return { s * self.x , s * self.y , s * self.z};
 }
+//const”Å‚Ì‰ÁŽZ
+inline 	const Vec3 operator + (const Vec3& self,const Vec3& other) {
+	return { self.x + other.x , self.y + other.y , self.z + other.z };
+}
+//const”Å‚ÌŒ¸ŽZ
+inline const Vec3 operator - (const Vec3& self, const Vec3& other) {
+	return { self.x - other.x , self.y - other.y , self.z - other.z };
+}
 
 #endif // !VECTOR3_H_
